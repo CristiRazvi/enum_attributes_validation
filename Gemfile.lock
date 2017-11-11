@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    enum_attributes_validation (0.1.0)
+    enum_attributes_validation (0.1.4)
 
 GEM
   remote: https://rubygems.org/

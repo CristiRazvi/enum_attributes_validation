@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/CristiRazvi/enum_attributes_validation"
   spec.license       = "MIT"
 
-  spec.files         = Dir['lib/   *.rb'] + Dir['bin/*']
+  spec.files         = Dir['{bin,lib}/**/*', 'README*', 'LICENSE*', 'Gemfile*', 'Rakefile']
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
