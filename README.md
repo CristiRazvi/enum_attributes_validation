@@ -24,7 +24,7 @@ Use built in method to specify which enum attributes you want to validate with i
 
 ```ruby
 class Comment < ApplicationRecord
-  enum gender { male: 0, female: 1 }
+  enum gender: { male: 0, female: 1 }
 
   validate_enum_attributes :gender
 end
