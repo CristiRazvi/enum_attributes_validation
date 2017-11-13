@@ -32,7 +32,7 @@ end
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/enum_attributes_validation.
+Bug reports and pull requests are welcome on GitHub at https://github.com/CristiRazvi/enum_attributes_validation.
 
 ## License
 
