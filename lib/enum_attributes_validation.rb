@@ -17,7 +17,7 @@ module EnumAttributesValidation
       def check_enum_invalid_attributes
         if enum_invalid_attributes.present?
           enum_invalid_attributes.each do |key, value|
-            errors.add(key, "invalid #{value}")
+            errors.add(key, :invalid_enum, value: value, valid_values: self.class.send(key.to_s.pluralize).keys.sort.join(', '), default: "invalid #{value}")
           end
         end
       end
