@@ -1,4 +1,4 @@
-require "enum_attributes_validation/version"
+require 'enum_attributes_validation/version'
 require 'active_support'
 require 'active_record'
 
