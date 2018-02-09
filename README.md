@@ -30,6 +30,16 @@ class Comment < ApplicationRecord
 end
 ```
 
+To show a custom error message:
+
+```ruby
+class Comment < ApplicationRecord
+  enum gender: { male: 0, female: 1 }
+
+  validate_enum_attributes :gender, message: "some string msg..."
+end
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/CristiRazvi/enum_attributes_validation.
