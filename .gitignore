@@ -7,3 +7,5 @@
 /spec/reports/
 /tmp/
 enum_attributes_validation-*.gem
+enum_attributes_validation_test_db
+.byebug_history

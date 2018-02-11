@@ -17,7 +17,11 @@ module EnumAttributesValidation
       def check_enum_invalid_attributes
         if enum_invalid_attributes.present?
           enum_invalid_attributes.each do |key, opts|
-            errors.add(key, opts[:message] || :invalid_enum, value: opts[:value], valid_values: self.class.send(key.to_s.pluralize).keys.sort.join(', '), default: "value provided (#{opts[:value]}) is invalid")
+            if opts[:message]
+              self.errors.add(:base, opts[:message])
+            else
+              self.errors.add(key, :invalid_enum, value: opts[:value], valid_values: self.class.send(key.to_s.pluralize).keys.sort.join(', '), default: "value provided (#{opts[:value]}) is invalid")
+            end
           end
         end
       end
@@ -29,9 +33,11 @@ module EnumAttributesValidation
         string_attribute = attribute.to_s
 
         define_method (string_attribute+"=").to_sym do |argument|
-          string_argument = argument.to_s
-          self[string_attribute] = string_argument                  if self.class.send(string_attribute.pluralize).keys.include?(string_argument)
-          self.enum_invalid_attributes[attribute] = opts.merge(value: string_argument) unless self.class.send(string_attribute.pluralize).keys.include?(string_argument)
+          unless argument.nil?
+            string_argument = argument.to_s
+            self[string_attribute]                  = string_argument                    if     self.class.send(string_attribute.pluralize).keys.include?(string_argument)
+            self.enum_invalid_attributes[attribute] = opts.merge(value: string_argument) unless self.class.send(string_attribute.pluralize).keys.include?(string_argument)
+          end
         end
       end
     end

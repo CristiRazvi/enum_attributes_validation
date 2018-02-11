@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    models:
+      dog: Dog
+
+    attributes:
+      dog:
+        gender: "Gender"
+        hair_color: "Hair color"
+
+    errors:
+      models:
+        dog:
+          attributes:
+            hair_color:
+              invalid_enum: "can't be %{value}. Valid values are: %{valid_values}"
