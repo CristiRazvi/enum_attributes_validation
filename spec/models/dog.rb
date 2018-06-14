@@ -75,4 +75,13 @@ describe Dog do
     expect(dog.errors.messages[:hair_color]).to include I18n.t("activerecord.errors.models.dog.attributes.hair_color.invalid_enum", value: hair_color, valid_values: Dog.hair_colors.keys.sort.join(', '))
   end
 
+  it "changes enum attribute valuse using bang! methods" do
+    dog = Dog.create
+
+    expect(dog.happy!).to be true
+    expect(dog.status).to eq "happy"
+    expect(dog.sad!).to be true
+    expect(dog.status).to eq "sad"
+  end
+
 end
