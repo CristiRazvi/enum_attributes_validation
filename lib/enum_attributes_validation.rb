@@ -33,7 +33,7 @@ module EnumAttributesValidation
         string_attribute = attribute.to_s
 
         define_method (string_attribute+"=").to_sym do |argument|
-          unless argument.nil?
+          unless argument.blank?
             string_argument = argument.to_s
             self[string_attribute]                  = string_argument                    if     self.class.send(string_attribute.pluralize).keys.include?(string_argument)
             self.enum_invalid_attributes[attribute] = opts.merge(value: string_argument) unless self.class.send(string_attribute.pluralize).keys.include?(string_argument)
