@@ -84,4 +84,20 @@ describe Dog do
     expect(dog.status).to eq "sad"
   end
 
+  it "sets nil when a valid value is already set" do
+    dog = Dog.new(hair_color: :black)
+    dog.hair_color = nil
+    expect(dog.hair_color).to be nil
+  end
+
+  it "clears errors when after valid value is set" do
+    dog = Dog.new(hair_color: :blue)
+    dog.valid?
+    expect(dog.errors.messages).to include :hair_color
+
+    dog.hair_color = :blonde
+    dog.valid?
+    expect(dog.errors.messages).not_to include :hair_color
+  end
+
 end
