@@ -1,3 +1,30 @@
+This is supported in Rails 7.1+ 
+
+https://github.com/rails/rails/pull/49100
+
+Also note:
+
+```
+enum something: { ... }
+```
+
+is now deprecated: https://github.com/rails/rails/pull/50987
+
+and
+ 
+```
+enum :something, { ... }, validate: true
+```
+
+should be used
+<br/>
+<br/>
+---
+<br/>
+<br/>
+<br/>
+
+
 
 # EnumAttributesValidation
 
